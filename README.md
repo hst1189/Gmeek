@@ -15,6 +15,32 @@
 
 2. 【启用Pages】在仓库的`Settings`中`Pages->Build and deployment->Source`下面选择`Github Actions`。
 
+- 在默认情况下，Github Actions是调用项目主人的远端程序
+- 如想回避调用，而将驱动本体 Fork在自己帐下，利用其生成博客的话，需修改博客网站内的 Github Actio驱动文件(.github/workflows/Gmeek.yml)
+
+  ```
+        - name: Clone source code
+        run: |
+          GMEEK_VERSION=$(jq -r ".GMEEK_VERSION" config.json)
+          git clone https://github.com/Meekdai/Gmeek.git /opt/Gmeek;
+          cd /opt/Gmeek/
+          lastTag=$(git describe --tags `git rev-list --tags --max-count=1`)
+          if [ $GMEEK_VERSION == 'last' ]; then git checkout $lastTag; else git checkout $GMEEK_VERSION; fi;
+  　　↓
+        - name: Clone source code
+        run: |
+          GMEEK_VERSION=$(jq -r ".GMEEK_VERSION" config.json)
+          git clone https://github.com/hst1189/Gmeek.git /opt/Gmeek;
+          cd /opt/Gmeek/
+  
+  　　　　※fork时没有clone tag，找不到tag会报error，将最后2行删除（版本无法选择，默认取main下最新）
+  ```
+
+
+
+
+
+
 3. 【开始写作】打开一篇issue，开始写作，并且**必须**添加一个`标签Label`（至少添加一个），再保存issue后会自动创建博客内容，片刻后可通过https://XXX.github.io 访问（可进入Actions页面查看构建进度）。
 
 4. 【手动全局生成】这个步骤只有在修改`config.json`文件或者出现奇怪问题的时候，需要执行。
@@ -38,7 +64,7 @@
 
 如果本项目对你有帮助，可以用微信赞赏一下作者，让项目有继续更新维护下去的动力，谢谢！
 
-![赞赏码](img/赞赏码.jpg)
+
 
 ### 鸣谢
 - [jinja2](https://jinja.palletsprojects.com/)
