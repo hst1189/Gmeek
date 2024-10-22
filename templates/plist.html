@@ -53,9 +53,9 @@
         </svg>
     </a>
     {% for key, value in blogBase['exlink'].items() -%}
-        {%- if {{ key }}=='RSS-Reader' -%}
+        {%- if key =='RSS-Reader' -%}
         <a href="{{ value }}" class="btn btn-invisible circle" title="{{ key }}">
-        {%- elif {{ key }}=='Webstack' -%}
+        {%- elif key =='Webstack' -%}
         <a href="{{ value }}" class="btn btn-invisible circle" title="{{ key }}">    
         {%- else -%} 
         <a href="{{ value }}" class="btn btn-invisible circle" title="{{ key }}" target="_blank">
