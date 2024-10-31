@@ -1,11 +1,14 @@
 **简体中文** | **[English](README-en.md)** | **[Русский](README-ru.md)**
 # Gmeek
 
-一个博客框架，超轻量级个人博客模板。完全基于`Github Pages` 、 `Github Issues` 和 `Github Actions`。不需要本地部署，从搭建到写作，只需要18秒，2步搭建好博客，第3步就是写作。
+一个博客框架，超轻量级个人博客模板。完全基于`Github Pages` 、 `Github Issues` 和 `Github Actions`。
 
-- [Demo页面](http://meekdai.github.io/)
-- [Gmeek更新日志](https://meekdai.github.io/post/Gmeek-geng-xin-ri-zhi.html)
-- [Gmeek快速上手](https://blog.meekdai.com/post/Gmeek-kuai-su-shang-shou.html)
+不需额外部署，从搭建到写作，只需要18秒，2步搭建好博客。
+
+- [Demo](http://hst1189.github.io/)
+- [Gmeek版本](https://meekdai.github.io/post/Gmeek-geng-xin-ri-zhi.html)
+- [Gmeek构建网站（基础篇）](https://www.grapehut.us.kg/post/Vol.1%20Gmeek-gou-jian-wang-zhan-%EF%BC%88-ji-chu-pian-%EF%BC%89.html#google_vignette)
+- [Gmeek构建网站（进阶篇）](https://www.grapehut.us.kg/post/Vol.2%20Gmeek-gou-jian-wang-zhan-%EF%BC%88-jin-jie-pian-%EF%BC%89.html)
 
 ![light](img/light.jpg)
 
@@ -15,8 +18,10 @@
 
 2. 【启用Pages】在仓库的`Settings`中`Pages->Build and deployment->Source`下面选择`Github Actions`。
 
-- 在默认情况下，Github Actions是调用项目主人的远端程序
-- 如想回避调用，而将驱动本体 Fork在自己帐下，利用其生成博客的话，需修改博客网站内的 Github Actio驱动文件(.github/workflows/Gmeek.yml)
+
+> [!NOTE]
+> 在默认情况下，Github Actions是调用项目主人的远端程序
+> 如想回避调用，可以将本驱动本体 Fork在自己帐下，修改博客网站内的 Github Actio驱动文件即可(.github/workflows/Gmeek.yml)
 
   ```
         - name: Clone source code
@@ -26,7 +31,9 @@
           cd /opt/Gmeek/
           lastTag=$(git describe --tags `git rev-list --tags --max-count=1`)
           if [ $GMEEK_VERSION == 'last' ]; then git checkout $lastTag; else git checkout $GMEEK_VERSION; fi;
+  ```
   　　↓
+  ```
         - name: Clone source code
         run: |
           GMEEK_VERSION=$(jq -r ".GMEEK_VERSION" config.json)
