@@ -7,8 +7,8 @@
 
 - [Demo](http://hst1189.github.io/)
 - [Gmeek版本](https://meekdai.github.io/post/Gmeek-geng-xin-ri-zhi.html)
-- [Gmeek构建网站（基础篇）](https://www.grapehut.us.kg/post/Vol.1%20Gmeek-gou-jian-wang-zhan-%EF%BC%88-ji-chu-pian-%EF%BC%89.html#google_vignette)
-- [Gmeek构建网站（进阶篇）](https://www.grapehut.us.kg/post/Vol.2%20Gmeek-gou-jian-wang-zhan-%EF%BC%88-jin-jie-pian-%EF%BC%89.html)
+- [Gmeek构建网站（基础篇）](http://hst1189.github.io/post/Vol.1%20Gmeek-gou-jian-wang-zhan-%EF%BC%88-ji-chu-pian-%EF%BC%89.html#google_vignette)
+- [Gmeek构建网站（进阶篇）](http://hst1189.github.io/post/Vol.2%20Gmeek-gou-jian-wang-zhan-%EF%BC%88-jin-jie-pian-%EF%BC%89.html)
 
 ![light](img/light.jpg)
 
@@ -50,7 +50,7 @@
 
 ### 提交问题
 
-1. 如果有问题可参考[Gmeek构建网站（基础篇）](https://www.grapehut.us.kg/post/Vol.1%20Gmeek-gou-jian-wang-zhan-%EF%BC%88-ji-chu-pian-%EF%BC%89.html#google_vignette) 
+1. 如果有问题可参考[Gmeek构建网站（基础篇）](http://hst1189.github.io/post/Vol.1%20Gmeek-gou-jian-wang-zhan-%EF%BC%88-ji-chu-pian-%EF%BC%89.html#google_vignette) 
 2. 提交[Issues](https://github.com/Meekdai/Gmeek/issues)咨询
 
 ### 特性
