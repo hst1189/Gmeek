@@ -19,3 +19,8 @@ if("{{ blogBase['startSite'] }}"!=""){
 </script>
 
 {{ blogBase['allHead'] }}
+
+{% if blogBase['lived2D']==1 %}
+    {{ blogBase['lived2D_script'] }}
+{% endif %}
+
