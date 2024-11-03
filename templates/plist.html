@@ -48,13 +48,11 @@
 </div>
 
 <div class="title-right">
-    {% for num in blogBase['singeListJson'] -%}
-    <a href="{{ blogBase['homeUrl'] }}/{{ blogBase['singeListJson'][num]['labels'][0] }}.html" class="btn btn-invisible circle" title="{{ blogBase['singeListJson'][num]['postTitle'] }}">
+    <a href="{{ blogBase['homeUrl'] }}/tag.html" id="buttonSearch" class="btn btn-invisible circle" title="{{ i18n['Search'] }}">
         <svg class="octicon" width="16" height="16" >
-            <path id="{{ blogBase['singeListJson'][num]['postTitle'] }}" fill-rule="evenodd"></path>
+            <path id="pathSearch" fill-rule="evenodd"></path>
         </svg>
     </a>
-    {%- endfor %}
     
     {% for key, value in blogBase['exlink'].items() -%}
         {%- if key =='Music' -%}
@@ -67,17 +65,21 @@
         </svg>
     </a>
     {%- endfor %}
-        
-    <a href="{{ blogBase['homeUrl'] }}/tag.html" id="buttonSearch" class="btn btn-invisible circle" title="{{ i18n['Search'] }}">
+    
+    {% for num in blogBase['singeListJson'] -%}
+    <a href="{{ blogBase['homeUrl'] }}/{{ blogBase['singeListJson'][num]['labels'][0] }}.html" class="btn btn-invisible circle" title="{{ blogBase['singeListJson'][num]['postTitle'] }}">
         <svg class="octicon" width="16" height="16" >
-            <path id="pathSearch" fill-rule="evenodd"></path>
+            <path id="{{ blogBase['singeListJson'][num]['postTitle'] }}" fill-rule="evenodd"></path>
         </svg>
     </a>
+    {%- endfor %}
+
     <a href="{{ blogBase['homeUrl'] }}/rss.xml" target="_blank" id="buttonRSS" class="btn btn-invisible circle" title="RSS">
         <svg class="octicon" width="16" height="16" >
             <path id="pathRSS" fill-rule="evenodd"></path>
         </svg>
     </a>
+
     <a class="btn btn-invisible circle" onclick="modeSwitch()" title="{{ i18n['switchTheme'] }}" {%- if blogBase['themeMode']=='fix' -%}style="display:none;"{%- endif -%}>
         <svg class="octicon" width="16" height="16" >
             <path id="themeSwitch" fill-rule="evenodd"></path>
