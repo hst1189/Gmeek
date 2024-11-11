@@ -126,7 +126,7 @@ document.getElementById("pathHome").setAttribute("d",IconList["home"]);
     else if(localStorage.getItem("meek_theme")=="light") {script.setAttribute("theme","github-light");}
     else{script.setAttribute("theme","preferred-color-scheme");}
     {% else %}
-    script.setAttribute("theme","{{ blogBase['dayTheme'] }}");
+    script.setAttribute("theme","preferred-color-scheme");
     {% endif %}
     script.setAttribute("crossorigin","anonymous");
     script.setAttribute("async","");
