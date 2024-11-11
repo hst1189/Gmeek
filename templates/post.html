@@ -72,7 +72,7 @@
 <div class="markdown-body" id="postBody">{{ blogBase['postBody'] }}</div>
 <div style="font-size:small;margin-top:8px;float:right;">{{ blogBase['bottomText'] }}</div>
 {% if blogBase['needComment']==1 %}
-<button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">{{ i18n['comments'] }}</button>
+<!--<button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">{{ i18n['comments'] }}</button>-->
 <div class="comments" id="comments"></div>
 {% endif %}
 {% endblock %}
@@ -90,13 +90,13 @@ document.getElementById("pathHome").setAttribute("d",IconList["home"]);
 {%- endif %}
 
 {% if blogBase['needComment']==1 %}
-function openComments(){
+//function openComments(){
     cm=document.getElementById("comments");
-    cmButton=document.getElementById("cmButton");
-    cmButton.innerHTML="loading";
-    span=document.createElement("span");
-    span.setAttribute("class","AnimatedEllipsis");
-    cmButton.appendChild(span);
+    //cmButton=document.getElementById("cmButton");
+    //cmButton.innerHTML="loading";
+    //span=document.createElement("span");
+    //span.setAttribute("class","AnimatedEllipsis");
+    //cmButton.appendChild(span);
 
     script=document.createElement("script");
     
@@ -131,7 +131,7 @@ function openComments(){
     
     cm.appendChild(script);
     int=self.setInterval("iFrameLoading()",200);
-}
+//}
 
 function iFrameLoading(){
     var utterances=document.getElementsByClassName('giscus');
