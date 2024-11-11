@@ -72,7 +72,7 @@
 <div class="markdown-body" id="postBody">{{ blogBase['postBody'] }}</div>
 <div style="font-size:small;margin-top:8px;float:right;">{{ blogBase['bottomText'] }}</div>
 {% if blogBase['needComment']==1 %}
-<!--<button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">{{ i18n['comments'] }}</button>-->
+<<button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">{{ i18n['comments'] }}</button>
 <div class="comments" id="comments"></div>
 {% endif %}
 {% endblock %}
@@ -92,14 +92,14 @@ document.getElementById("pathHome").setAttribute("d",IconList["home"]);
 {% if blogBase['needComment']==1 %}
 //function openComments(){
     cm=document.getElementById("comments");
-    //cmButton=document.getElementById("cmButton");
-    //cmButton.innerHTML="loading";
-    //span=document.createElement("span");
-    //span.setAttribute("class","AnimatedEllipsis");
-    //cmButton.appendChild(span);
+    cmButton=document.getElementById("cmButton");
+    cmButton.innerHTML="loading";
+    span=document.createElement("span");
+    span.setAttribute("class","AnimatedEllipsis");
+    cmButton.appendChild(span);
+    cmButton.style.display="none";
 
     script=document.createElement("script");
-    
     script.setAttribute("src","https://giscus.app/client.js");
     script.setAttribute("data-repo","{{ blogBase['repoName'] }}");
     script.setAttribute("data-repo-id","R_kgDOMq37aA");
@@ -140,7 +140,7 @@ function iFrameLoading(){
             utterancesLoad=1;
             int=window.clearInterval(int);
             document.getElementById("cmButton").style.display="none";
-            console.log("utterances Load OK");
+            console.log("Comment Load OK");
         //}
     }
 }
