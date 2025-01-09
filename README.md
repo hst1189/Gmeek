@@ -7,8 +7,9 @@
 
 - [Demo](http://hst1189.github.io/)
 - [Gmeek版本](https://meekdai.github.io/post/Gmeek-geng-xin-ri-zhi.html)
-- [Gmeek构建网站（基础篇）](http://hst1189.github.io/post/Vol.1%20Gmeek-gou-jian-wang-zhan-%EF%BC%88-ji-chu-pian-%EF%BC%89.html#google_vignette)
-- [Gmeek构建网站（进阶篇）](http://hst1189.github.io/post/Vol.2%20Gmeek-gou-jian-wang-zhan-%EF%BC%88-jin-jie-pian-%EF%BC%89.html)
+- [Gmeek构建网站（基础篇）](http://hst1189.github.io/post/1.html)
+- [Gmeek构建网站（进阶篇）](http://hst1189.github.io/post/3.html)
+- [Gmeek构建网站（发布）](http://hst1189.github.io/post/4.html)
 
 ![light](img/light.jpg)
 
