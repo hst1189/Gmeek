@@ -9,7 +9,7 @@
 
 <script>
 var now=new Date();
-document.getElementById("copyrightYear").innerHTML="2024 - " & now.getFullYear();
+document.getElementById("copyrightYear").innerHTML= now.getFullYear();
 
 if("{{ blogBase['startSite'] }}"!=""){
     var startSite=new Date("{{ blogBase['startSite'] }}");
