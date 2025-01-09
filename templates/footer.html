@@ -3,13 +3,13 @@
     {%- if blogBase['filingNum']!='' -%}
     <span id="filingNum"><a href="https://beian.miit.gov.cn/" target="_blank">{{ blogBase['filingNum'] }}</a> • </span>
     {%- endif %}
-    <span>Powered by <a href="https://github.com/Meekdai/Gmeek" target="_blank">Gmeek</a></span>
+    <span>Powered by <a href="https://github.com/Meekdai/Gmeek" target="_blank">Gmeek</a></span><br>
     <span id="runday"></span>
 </div>
 
 <script>
 var now=new Date();
-document.getElementById("copyrightYear").innerHTML=now.getFullYear();
+document.getElementById("copyrightYear").innerHTML="2024 - " & now.getFullYear();
 
 if("{{ blogBase['startSite'] }}"!=""){
     var startSite=new Date("{{ blogBase['startSite'] }}");
