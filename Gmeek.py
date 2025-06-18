@@ -17,7 +17,7 @@ from transliterate import translit
 from collections import OrderedDict
 ######################################################################################
 i18n={"Search":"Search","switchTheme":"switch theme","home":"home","comments":"comments","run":"run ","days":" days","Previous":"Previous","Next":"Next"}
-i18nCN={"Search":"搜索","switchTheme":"切换主题","home":"首页","comments":"评论","run":"网站运行","days":"天","Previous":"上一页","Next":"下一页"}
+i18nCN={"Search":"搜索🔍","switchTheme":"切换主题","home":"首页","comments":"评论","run":"网站运行","days":"天","Previous":"🔙上一页","Next":"下一页🔜"}
 i18nRU={"Search":"Поиск","switchTheme": "Сменить тему","home":"Главная","comments":"Комментарии","run":"работает ","days":" дней","Previous":"Предыдущая","Next":"Следующая"}
 IconBase={
     "post":"M0 3.75C0 2.784.784 2 1.75 2h12.5c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0 1 14.25 14H1.75A1.75 1.75 0 0 1 0 12.25Zm1.75-.25a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-8.5a.25.25 0 0 0-.25-.25ZM3.5 6.25a.75.75 0 0 1 .75-.75h7a.75.75 0 0 1 0 1.5h-7a.75.75 0 0 1-.75-.75Zm.75 2.25h4a.75.75 0 0 1 0 1.5h-4a.75.75 0 0 1 0-1.5Z",
@@ -362,8 +362,10 @@ class GMEEK():
 
             if "timestamp" in postConfig:
                 self.blogBase[listJsonName][postNum]["createdAt"]=postConfig["timestamp"]
+                self.blogBase[listJsonName][postNum]["updatedAt"]=postConfig["timestamp"]
             else:
                 self.blogBase[listJsonName][postNum]["createdAt"]=int(time.mktime(issue.created_at.timetuple()))
+                self.blogBase[listJsonName][postNum]["updatedAt"]=int(time.mktime(issue.updated_at.timetuple()))
             
             if "style" in postConfig:
                 self.blogBase[listJsonName][postNum]["style"]=self.blogBase["style"]+str(postConfig["style"])
