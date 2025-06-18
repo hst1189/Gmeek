@@ -180,8 +180,8 @@ class GMEEK():
         if '<code class="notranslate">Gmeek-html' in post_body:
             post_body = re.sub(r'<code class="notranslate">Gmeek-html(.*?)</code>', lambda match: html.unescape(match.group(1)), post_body, flags=re.DOTALL)
 
-        postBase["createdAt"]=time.strftime("%Y-%m-%d %H:%M:%S", time.gmtime(issue["createdAt"]))
-        postBase["updatedAt"]=time.strftime("%Y-%m-%d %H:%M:%S", time.gmtime(issue["updatedAt"]))
+        postBase["createdAt"]=time.strftime("%Y-%m-%d %H:%M", time.gmtime(issue["createdAt"]))
+        postBase["updatedAt"]=time.strftime("%Y-%m-%d %H:%M", time.gmtime(issue["updatedAt"]))
         postBase["postTitle"]=issue["postTitle"]
         postBase["postUrl"]=self.blogBase["homeUrl"]+"/"+issue["postUrl"]
         postBase["description"]=issue["description"]
@@ -199,13 +199,13 @@ class GMEEK():
             postBase["bottomText"]=''
 
         if '<pre class="notranslate">' in post_body:
-            keys=['sun','moon','sync','home','github','copy','check']
+            keys=['sun','moon','sync','home','search','github','copy','check']
             if '<div class="highlight' in post_body:
                 postBase["highlight"]=1
             else:
                 postBase["highlight"]=2
         else:
-            keys=['sun','moon','sync','home','github']
+            keys=['sun','moon','sync','home','search','github']
             postBase["highlight"]=0
 
         postIcon=dict(zip(keys, map(IconBase.get, keys)))
