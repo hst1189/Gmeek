@@ -180,6 +180,8 @@ class GMEEK():
         if '<code class="notranslate">Gmeek-html' in post_body:
             post_body = re.sub(r'<code class="notranslate">Gmeek-html(.*?)</code>', lambda match: html.unescape(match.group(1)), post_body, flags=re.DOTALL)
 
+        postBase["createdAt"]=issue["createdAt"]
+        postBase["updatedAt"]=issue["updatedAt"]
         postBase["postTitle"]=issue["postTitle"]
         postBase["postUrl"]=self.blogBase["homeUrl"]+"/"+issue["postUrl"]
         postBase["description"]=issue["description"]
@@ -208,7 +210,7 @@ class GMEEK():
 
         postIcon=dict(zip(keys, map(IconBase.get, keys)))
         self.renderHtml('post.html',postBase,{},issue["htmlDir"],postIcon)
-        print("create postPage title=%s file=%s " % (issue["postTitle"],issue["htmlDir"]))
+        print("create postPage title=%s file=%s createdAt=%s updatedAt=%s" % (issue["postTitle"],issue["htmlDir"],issue["createdAt"],issue["updatedAt"]))
 
     def createPlistHtml(self):
         self.blogBase["postListJson"]=dict(sorted(self.blogBase["postListJson"].items(),key=lambda x:(x[1]["top"],x[1]["updatedAt"]),reverse=True))#使列表由时间排序
