@@ -180,8 +180,8 @@ class GMEEK():
         if '<code class="notranslate">Gmeek-html' in post_body:
             post_body = re.sub(r'<code class="notranslate">Gmeek-html(.*?)</code>', lambda match: html.unescape(match.group(1)), post_body, flags=re.DOTALL)
 
-        postBase["createdAt"]=issue["createdAt"]
-        postBase["updatedAt"]=issue["updatedAt"]
+        postBase["createdAt"]=time.strftime("%a, %d %b %Y %H:%M:%S +0000", time.gmtime(issue["createdAt"]))
+        postBase["updatedAt"]=time.strftime("%a, %d %b %Y %H:%M:%S +0000", time.gmtime(issue["updatedAt"]))
         postBase["postTitle"]=issue["postTitle"]
         postBase["postUrl"]=self.blogBase["homeUrl"]+"/"+issue["postUrl"]
         postBase["description"]=issue["description"]
