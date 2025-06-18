@@ -211,7 +211,7 @@ class GMEEK():
         print("create postPage title=%s file=%s " % (issue["postTitle"],issue["htmlDir"]))
 
     def createPlistHtml(self):
-        self.blogBase["postListJson"]=dict(sorted(self.blogBase["postListJson"].items(),key=lambda x:(x[1]["top"],x[1]["createdAt"]),reverse=True))#使列表由时间排序
+        self.blogBase["postListJson"]=dict(sorted(self.blogBase["postListJson"].items(),key=lambda x:(x[1]["top"],x[1]["updatedAt"]),reverse=True))#使列表由时间排序
         keys=list(OrderedDict.fromkeys(['sun', 'moon','sync', 'search', 'rss', 'upload', 'post'] + self.blogBase["singlePage"]))
         plistIcon={**dict(zip(keys, map(IconBase.get, keys))),**self.blogBase["iconList"]}
         keys=['sun','moon','sync','home','search','post']
