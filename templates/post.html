@@ -74,7 +74,7 @@
 {% endblock %}
 
 {% block content %}
-<nav style="text-align:right">created at {{ blogBase['createdAt'] }},　　last updated at {{ blogBase['updatedAt'] }}</nav>
+<nav style="text-align:right">created at {{ blogBase['createdAt'] }},　last updated at {{ blogBase['updatedAt'] }}</nav>
 <div class="markdown-body spoiler" id="postBody">{{ blogBase['postBody'] }}</div>
 <div style="font-size:small;margin-top:8px;float:right;">{{ blogBase['bottomText'] }}</div>
 {% if blogBase['needComment']==1 %}
