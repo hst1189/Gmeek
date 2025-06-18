@@ -211,7 +211,7 @@ class GMEEK():
         postIcon=dict(zip(keys, map(IconBase.get, keys)))
         self.renderHtml('post.html',postBase,{},issue["htmlDir"],postIcon)
         print("create postPage title=%s file=%s createdAt=%s updatedAt=%s" % (issue["postTitle"],issue["htmlDir"],issue["createdAt"],issue["updatedAt"]))
-        print(post_body)
+        print("post_body=%s" % (post_body))
 
     def createPlistHtml(self):
         self.blogBase["postListJson"]=dict(sorted(self.blogBase["postListJson"].items(),key=lambda x:(x[1]["top"],x[1]["updatedAt"]),reverse=True))#使列表由时间排序
