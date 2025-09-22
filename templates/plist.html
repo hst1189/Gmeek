@@ -1,11 +1,13 @@
 {% extends 'base.html' %}
 {% block head %}
-<meta name="description" content="{{ blogBase['subTitle'] }}">
+<meta name="description" content="{{ blogBase['title'] }}">
 <meta property="og:title" content="{{ blogBase['title'] }}">
-<meta property="og:description" content="{{ blogBase['subTitle'] }}">
+<meta property="og:description" content="{{ blogBase['title'] }}">
 <meta property="og:type" content="blog">
 <meta property="og:url" content="{{ blogBase['homeUrl'] }}">
 <meta property="og:image" content="{{ blogBase['ogImage'] }}">
+<meta property="og:site_name" content="{{ blogBase['title'] }}">
+
 <title>{{ blogBase['title'] }}</title>
 {% endblock %}
 
