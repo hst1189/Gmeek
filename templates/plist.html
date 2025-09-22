@@ -21,6 +21,8 @@
 .title-right button{margin-right:8px;padding:16px;}
 .title-right .circle{padding: 14px 16px;}
 .title-right ul{list-style-type: none;}
+.title-right ul li{display: inline;}
+    
 
 .SideNav{min-width: 360px;}
 .SideNav-icon{margin-right: 16px}
@@ -33,7 +35,7 @@
 @media (max-width: 768px) {
     body {padding: 8px;}
     .avatar {width:36px;height:36px;}
-    #buttonRSS{display:none;}
+    .blogTitle{font-size:16px;}
     .LabelTime{display:none;}
 }
 </style>
@@ -80,7 +82,7 @@
 {% endblock %}
 
 {% block content %}
-<div style="margin-bottom: 16px;"><h2 style="font-size: 16px;">{{ blogBase['subTitle'] }}</h2></div>
+<section style="margin-bottom: 16px;"><h2 style="font-size: 16px;">{{ blogBase['subTitle'] }}</h2></section>
 
 <section class="SideNav border">
     {% for num in postListJson -%}
