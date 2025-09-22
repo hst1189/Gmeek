@@ -43,9 +43,9 @@
 <div class="title-left">
     <img src="{{ blogBase['avatarUrl'] }}" class="avatar circle" id="avatarImg" alt="avatar">
     {%- if blogBase['displayTitle']=='Meekdai' -%}
-    <a class="blogTitle" href="https://meekdai.com"><span style="font-size:0;">M</span>eekdai</a>
+    <h1><a class="blogTitle" href="https://meekdai.com"><span style="font-size:0;">M</span>eekdai</a></h1>
     {% else -%}
-    <a class="blogTitle">{{ blogBase['displayTitle'] }}</a>
+    <h1><a class="blogTitle">{{ blogBase['displayTitle'] }}</a></h1>
     {%- endif -%}
 </div>
 
