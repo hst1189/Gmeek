@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html data-color-mode="light" data-dark-theme="{{ blogBase['nightTheme'] }}" data-light-theme="{{ blogBase['dayTheme'] }}" lang={% if blogBase['i18n']=='CN' %}"zh-CN"{% elif blogBase['i18n']=='RU' %}"ru"{% else -%}"en"{%- endif -%}>
 <head>
-    <meta content="text/html; charset=utf-8" http-equiv="content-type" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta content="text/html; charset=utf-8" http-equiv="content-type">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     {{ blogBase['primerCSS'] }}
     <link rel="icon" href="{{ blogBase['faviconUrl'] }}">
@@ -16,17 +16,17 @@
 </head>
 <style>
 body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;padding: 45px;font-size: 16px;font-family: sans-serif;line-height: 1.25;}
-#header{display:flex;padding-bottom:8px;border-bottom: 1px solid var(--borderColor-muted, var(--color-border-muted));margin-bottom: 16px;}
-#footer {margin-top:64px; text-align: center;font-size: small;}
-
+header{display:flex;padding-bottom:8px;border-bottom: 1px solid var(--borderColor-muted, var(--color-border-muted));margin-bottom: 16px;}
+footer {margin-top:64px; text-align: center;font-size: small;}
 </style>
 {% block style %}{% endblock %}
 
 <body>
-    <div id="header">{% block header %}{% endblock %}</div>
-    <div id="content">{% block content %}{% endblock %}</div>
-    <div id="footer">{% include 'footer.html' %}</div>
+    <header>{% block header %}{% endblock %}</header>
+    <main id="content">{% block content %}{% endblock %}</main>
+    <footer">{% include 'footer.html' %}</footer>
 </body>
+    
 <script>
 var IconList={{ IconList }};
 var utterancesLoad=0;
