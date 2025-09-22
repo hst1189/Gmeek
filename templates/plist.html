@@ -20,6 +20,7 @@
 .title-right{display:flex;flex-direction:row;margin:auto 0 0 auto;}
 .title-right button{margin-right:8px;padding:16px;}
 .title-right .circle{padding: 14px 16px;}
+.title-right ul{list-style-type: none;}
 
 .SideNav{min-width: 360px;}
 .SideNav-icon{margin-right: 16px}
@@ -50,45 +51,36 @@
 </div>
 
 <div class="title-right">
-    <a href="{{ blogBase['homeUrl'] }}/tag.html" id="buttonSearch" class="btn btn-invisible circle" title="{{ i18n['Search'] }}">
-        <svg class="octicon" width="16" height="16" >
-            <path id="pathSearch" fill-rule="evenodd"></path>
-        </svg>
-    </a>
-    <nav>
+    <nav><ul>
+    <li><a href="{{ blogBase['homeUrl'] }}/tag.html" id="buttonSearch" class="btn btn-invisible circle" title="{{ i18n['Search'] }}">
+        <svg class="octicon" width="16" height="16" ><path id="pathSearch" fill-rule="evenodd"></path></svg>
+    </a></li>   
+    
     {% for key, value in blogBase['exlink'].items() -%}
-    <li><a href="{{ value }}" class="btn btn-invisible circle" title="{{ key }}">
-        <svg class="octicon" width="16" height="16" >
-            <path id="{{ key }}" fill-rule="evenodd"></path>
-        </svg>
-    </a><</li>
+    <li><a href="{{ value }}" class="btn btn-invisible circle" id="{{ key }}" title="{{ key }}">
+        <svg class="octicon" width="16" height="16" ><path id="{{ key }}" fill-rule="evenodd"></path></svg>
+    </a></li>
     {%- endfor %}
-    </nav>
     
     {% for num in blogBase['singeListJson'] -%}
-    <a href="{{ blogBase['homeUrl'] }}/{{ blogBase['singeListJson'][num]['labels'][0] }}.html" class="btn btn-invisible circle" title="{{ blogBase['singeListJson'][num]['postTitle'] }}">
-        <svg class="octicon" width="16" height="16" >
-            <path id="{{ blogBase['singeListJson'][num]['postTitle'] }}" fill-rule="evenodd"></path>
-        </svg>
-    </a>
+    <li><a href="{{ blogBase['homeUrl'] }}/{{ blogBase['singeListJson'][num]['labels'][0] }}.html" class="btn btn-invisible circle" title="{{ blogBase['singeListJson'][num]['postTitle'] }}">
+        <svg class="octicon" width="16" height="16" ><path id="{{ blogBase['singeListJson'][num]['postTitle'] }}" fill-rule="evenodd"></path></svg>
+    </a></li>
     {%- endfor %}
 
-    <a href="{{ blogBase['homeUrl'] }}/rss.xml" target="_blank" id="buttonRSS" class="btn btn-invisible circle" title="RSS">
-        <svg class="octicon" width="16" height="16" >
-            <path id="pathRSS" fill-rule="evenodd"></path>
-        </svg>
-    </a>
+    <li><a href="{{ blogBase['homeUrl'] }}/rss.xml" target="_blank" id="buttonRSS" class="btn btn-invisible circle" title="RSS">
+        <svg class="octicon" width="16" height="16" ><path id="pathRSS" fill-rule="evenodd"></path></svg>
+    </a></li>
 
-    <a class="btn btn-invisible circle" onclick="modeSwitch()" title="{{ i18n['switchTheme'] }}" {%- if blogBase['themeMode']=='fix' -%}style="display:none;"{%- endif -%}>
-        <svg class="octicon" width="16" height="16" >
-            <path id="themeSwitch" fill-rule="evenodd"></path>
-        </svg>
-    </a>
+    <li><a class="btn btn-invisible circle" onclick="modeSwitch()" title="{{ i18n['switchTheme'] }}" {%- if blogBase['themeMode']=='fix' -%}style="display:none;"{%- endif -%}>
+        <svg class="octicon" width="16" height="16" ><path id="themeSwitch" fill-rule="evenodd"></path></svg>
+    </a></li>
+    </ul></nav>
 </div>
 {% endblock %}
 
 {% block content %}
-<div style="margin-bottom: 16px;">{{ blogBase['subTitle'] }}</div>
+<div style="margin-bottom: 16px;"><h2>{{ blogBase['subTitle'] }}</h2></div>
 <section class="SideNav border">
     {% for num in postListJson -%}
     <a class="SideNav-item d-flex flex-items-center flex-justify-between" href="{{ postListJson[num]['postUrl']|e }}">
