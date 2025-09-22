@@ -57,7 +57,7 @@
     </a></li>   
     
     {% for key, value in blogBase['exlink'].items() -%}
-    <li><a href="{{ value }}" class="btn btn-invisible circle" id="{{ key }}" title="{{ key }}">
+    <li><a href="{{ value }}" class="btn btn-invisible circle" title="{{ key }}">
         <svg class="octicon" width="16" height="16" ><path id="{{ key }}" fill-rule="evenodd"></path></svg>
     </a></li>
     {%- endfor %}
