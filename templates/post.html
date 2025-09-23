@@ -24,9 +24,10 @@
 #cmButton{height:48px;margin-top:48px;}
 #comments{margin-top:64px;}
 .g-emoji{font-size:24px;}
-@media (max-width: 600px) {
-    body {padding: 8px;}
-    .postTitle{font-size:24px;}
+@media (max-width: 768px) {
+    body {margin:0; padding: 8px;}
+    .postTitle{font-size:20px;}
+    header{display:flex;flex-direction:column;margin:auto auto 5px auto;}
 }
 {% if blogBase['highlight']!=0 -%}
 .copy-feedback {
@@ -45,43 +46,49 @@
 
 {% endblock %}
 {% block header %}
-<h1 class="postTitle">{{ blogBase['postTitle'] }}</h1>
-<div class="title-right">
-    <a href="{{ blogBase['homeUrl'] }}/tag.html" id="buttonSearch" class="btn btn-invisible circle" title="{{ i18n['Search'] }}">
-        <svg class="octicon" width="16" height="16" >
-            <path id="pathSearch" fill-rule="evenodd"></path>
-        </svg>
-    </a>
-    <a href="{{ blogBase['homeUrl'] }}" id="buttonHome" class="btn btn-invisible circle" title="{{ i18n['home'] }}">
-        <svg class="octicon" width="16" height="16">
-            <path id="pathHome" fill-rule="evenodd"></path>
-        </svg>
-    </a>
+<nav class="title-left">
+    <h1 class="postTitle">{{ blogBase['postTitle'] }}</h1>
+</nav>
+<nav class="title-right">
+    <ul>
+    <li><a href="{{ blogBase['homeUrl'] }}" id="buttonHome" class="btn btn-invisible circle" title="{{ i18n['home'] }}">
+        <svg class="octicon" width="16" height="16"><path id="pathHome" fill-rule="evenodd"></path></svg>
+    </a></li>
+        
+    <li><a href="{{ blogBase['homeUrl'] }}/tag.html" id="buttonSearch" class="btn btn-invisible circle" title="{{ i18n['Search'] }}">
+        <svg class="octicon" width="16" height="16" ><path id="pathSearch" fill-rule="evenodd"></path></svg>
+    </a></li>
+    
+    {% for key, value in blogBase['exlink'].items() -%}
+    <li><a href="{{ value }}" class="btn btn-invisible circle" title="{{ key }}">
+        <svg class="octicon" width="16" height="16" ><path id="{{ key }}" fill-rule="evenodd"></path></svg>
+    </a></li>
+    {%- endfor %}
+        
     {% if blogBase['showPostSource']==1 %}
-    <a href="{{ blogBase['postSourceUrl'] }}" target="_blank" class="btn btn-invisible circle" title="Issue">
-        <svg class="octicon" width="16" height="16">
-            <path id="pathIssue" fill-rule="evenodd"></path>
-        </svg>
-    </a>
+    <li><a href="{{ blogBase['postSourceUrl'] }}" target="_blank" class="btn btn-invisible circle" title="Issue">
+        <svg class="octicon" width="16" height="16"><path id="pathIssue" fill-rule="evenodd"></path></svg>
+    </a></li>
     {% endif %}
 
-    <a class="btn btn-invisible circle" onclick="modeSwitch();" title="{{ i18n['switchTheme'] }}" {%- if blogBase['themeMode']=='fix' -%}style="display:none;"{%- endif -%}>
-        <svg class="octicon" width="16" height="16" >
-            <path id="themeSwitch" fill-rule="evenodd"></path>
-        </svg>
-    </a>
-
-</div>
+    <li><a class="btn btn-invisible circle" onclick="modeSwitch();" title="{{ i18n['switchTheme'] }}" {%- if blogBase['themeMode']=='fix' -%}style="display:none;"{%- endif -%}>
+        <svg class="octicon" width="16" height="16" ><path id="themeSwitch" fill-rule="evenodd"></path></svg>
+    </a></li>
+    </ul>
+</nav>
 {% endblock %}
 
 {% block content %}
-<nav style="text-align:right">created at {{ blogBase['createdAt'] }},　last updated at {{ blogBase['updatedAt'] }}</nav>
-<div class="markdown-body spoiler" id="postBody">{{ blogBase['postBody'] }}</div>
-<div style="font-size:small;margin-top:8px;float:right;">{{ blogBase['bottomText'] }}</div>
-{% if blogBase['needComment']==1 %}
-<button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">{{ i18n['comments'] }}</button>
-<div class="comments" id="comments"></div>
-{% endif %}
+<main>
+    <section style="text-align:right"><p>created at {{ blogBase['createdAt'] }}<p></section>
+    <section style="text-align:right"><p>updated at {{ blogBase['updatedAt'] }}<p></section>
+    <section class="markdown-body spoiler" id="postBody">{{ blogBase['postBody'] }}</section>
+    <section style="font-size:small;margin-top:8px;float:right;">{{ blogBase['bottomText'] }}</section>
+    {% if blogBase['needComment']==1 %}
+    <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">{{ i18n['comments'] }}</button>
+    <div class="comments" id="comments"></div>
+    {% endif %}
+</main>
 {% endblock %}
 
 {% block script %}
