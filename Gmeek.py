@@ -519,11 +519,18 @@ if os.environ.get('GITHUB_EVENT_NAME')!='schedule':
     print("====== update readme file ======")
     workspace_path = os.environ.get('GITHUB_WORKSPACE')
     readme="# %s :link: %s \r\n" % (blog.blogBase["title"],blog.blogBase["homeUrl"])
-    readme=readme+"### :page_facing_up: [%d](%s/tag.html) \r\n" % (len(blog.blogBase["postListJson"])-1,blog.blogBase["homeUrl"])
-    readme=readme+"### :speech_balloon: %d \r\n" % commentNumSum
-    readme=readme+"### :hibiscus: %d \r\n" % wordCount
-    readme=readme+"### :alarm_clock: %s \r\n" % datetime.datetime.now(blog.TZ).strftime('%Y-%m-%d %H:%M:%S')
-    readme=readme+"### Powered by :heart: [Gmeek](https://github.com/Meekdai/Gmeek)\r\n"
+    readme=readme+":octocat: :100: Gmeek 一个超轻量级个人博客模板，完全基于Github Pages 、Github Issues 和 Github Actions，可以称作All in Github"
+    readme=readme+"## 安装手册："
+    readme=readme+"- 基础篇：blog.blogBase["homeUrl"]/post/1"
+    readme=readme+"- 进阶篇：blog.blogBase["homeUrl"]/post/2"
+    readme=readme+"- 高级篇：blog.blogBase["homeUrl"]/post/3"
+    readme=readme+"- 域名绑定：blog.blogBase["homeUrl"]/post/4"
+    readme=readme+"## 博客信息："
+    readme=readme+"- 投稿：:scroll: [%d](%s/tag.html) \r\n" % (len(blog.blogBase["postListJson"])-1,blog.blogBase["homeUrl"])
+    readme=readme+"- 字数：:pencil: %d \r\n" % wordCount
+    readme=readme+"- 评论：:speech_balloon: %d \r\n" % commentNumSum
+    readme=readme+"- 更新日期：:alarm_clock: %s \r\n" % datetime.datetime.now(blog.TZ).strftime('%Y-%m-%d %H:%M:%S')
+    readme=readme+"Copyright :copyright: 2025 小饅頭の部落格 All Rights Reserved. Powered by [Gmeek](https://github.com/hst1189/Gmeek)\r\n"
     readmeFile=open(workspace_path+"/README.md","w")
     readmeFile.write(readme)
     readmeFile.close()
