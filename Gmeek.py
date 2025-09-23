@@ -521,16 +521,16 @@ if os.environ.get('GITHUB_EVENT_NAME')!='schedule':
     readme="# %s :link: %s \r\n" % (blog.blogBase["title"],blog.blogBase["homeUrl"])
     readme=readme+":octocat: :100: Gmeek 一个超轻量级个人博客模板，完全基于Github Pages 、Github Issues 和 Github Actions，可以称作All in Github \r\n"
     readme=readme+"## 安装手册：\r\n"
-    readme=readme+"- 基础篇：%s \r\n" % ('blog.blogBase["homeUrl"]/post/1')
-    readme=readme+"- 进阶篇：%s \r\n" % ('blog.blogBase["homeUrl"]/post/2')
-    readme=readme+"- 高级篇：%s \r\n" % ('blog.blogBase["homeUrl"]/post/3')
-    readme=readme+"- 域名绑定：%s \r\n" % ('blog.blogBase["homeUrl"]/post/4')
+    readme=readme+"- [基础篇](%s/post/1) \r\n" % (blog.blogBase["homeUrl"])
+    readme=readme+"- [进阶篇](%s/post/2) \r\n" % (blog.blogBase["homeUrl"])
+    readme=readme+"- [高级篇](%s/post/3) \r\n" % (blog.blogBase["homeUrl"])
+    readme=readme+"- [域名绑定](%s/post/4) \r\n" % (blog.blogBase["homeUrl"])
     readme=readme+"## 博客信息：\r\n"
     readme=readme+"- 投稿：📜 [%d](%s/tag.html) \r\n" % (len(blog.blogBase["postListJson"])-1,blog.blogBase["homeUrl"])
     readme=readme+"- 字数：✏️ %d \r\n" % wordCount
     readme=readme+"- 评论：💬 %d \r\n" % commentNumSum
     readme=readme+"- 更新日期：⏰ %s \r\n" % datetime.datetime.now(blog.TZ).strftime('%Y-%m-%d %H:%M:%S')
-    readme=readme+"Copyright :copyright: 2025 小饅頭の部落格 All Rights Reserved. Powered by [Gmeek](https://github.com/hst1189/Gmeek)\r\n"
+    readme=readme+"©️ Copyright 2024-2025 小饅頭の部落格 All Rights Reserved. Powered by [Gmeek](https://github.com/hst1189/Gmeek)\r\n"
     readmeFile=open(workspace_path+"/README.md","w")
     readmeFile.write(readme)
     readmeFile.close()
