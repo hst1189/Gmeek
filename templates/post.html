@@ -1,12 +1,13 @@
 {% extends 'base.html' %}
-
 {% block head %}
-<meta name="description" content="{{ blogBase['description'] }}">
+<meta name="description" content="{{ blogBase['title'] }}">
 <meta property="og:title" content="{{ blogBase['postTitle'] }}">
-<meta property="og:description" content="{{ blogBase['description'] }}">
+<meta property="og:description" content="{{ blogBase['title'] }}">
 <meta property="og:type" content="article">
 <meta property="og:url" content="{{ blogBase['postUrl'] }}">
 <meta property="og:image" content="{{ blogBase['ogImage'] }}">
+<meta property="og:site_name" content="{{ blogBase['title'] }}">
+
 <title>{{ blogBase['postTitle'] }}</title>
 {% if blogBase['highlight']==1 %}<link href="//unpkg.com/@wooorm/starry-night@2.1.1/style/both.css" rel="stylesheet" />{% endif %}
 {% if blogBase['spoiler']==1 %}<link href="../assets/spoiler.css" rel="stylesheet" />{% endif %}
