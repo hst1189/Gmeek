@@ -37,7 +37,7 @@
     header{display:flex;flex-direction:column;margin:auto auto 5px auto;}
     .avatar {width:36px;height:36px;}
     .title-left{display:flex;flex-direction:row;margin:auto 10px;}
-    .title-left h1{color:inherit;text-decoration:none;font-size: 20px;font-family:Monaco;padding-left:50px}
+    .title-left h1{color:inherit;text-decoration:none;font-size: 20px;font-family:Monaco;padding-left:10px}
     .title-right{display:flex;flex-direction:row;justify-content: space-evenly; margin:auto 0;}
 }
 {% if blogBase['highlight']!=0 -%}
@@ -89,16 +89,13 @@
 {% endblock %}
 
 {% block content %}
-<main>
-    <section style="text-align:right"><p>created at {{ blogBase['createdAt'] }}<p></section>
-    <section style="text-align:right"><p>updated at {{ blogBase['updatedAt'] }}<p></section>
-    <section class="markdown-body spoiler" id="postBody">{{ blogBase['postBody'] }}</section>
-    <section style="font-size:small;margin-top:8px;float:right;">{{ blogBase['bottomText'] }}</section>
-    {% if blogBase['needComment']==1 %}
-    <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">{{ i18n['comments'] }}</button>
-    <div class="comments" id="comments"></div>
-    {% endif %}
-</main>
+<section style="font-size:10px; text-align:right;"><p>created at {{ blogBase['createdAt'] }},updated at {{ blogBase['updatedAt'] }}</p></section>
+<section class="markdown-body spoiler" id="postBody">{{ blogBase['postBody'] }}</section>
+<section style="font-size:small;margin-top:8px;float:right;">{{ blogBase['bottomText'] }}</section>
+{% if blogBase['needComment']==1 %}
+<button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">{{ i18n['comments'] }}</button>
+<div class="comments" id="comments"></div>
+{% endif %}
 {% endblock %}
 
 {% block script %}
